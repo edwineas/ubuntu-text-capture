@@ -25,7 +25,10 @@ sudo apt update
 sudo apt install gnome-screenshot
 ```
 ```bash
-sudo apt install tesseract-ocr sudo apt install libtesseract-dev
+sudo apt install tesseract-ocr 
+```
+```bash
+sudo apt install libtesseract-dev
 ```
 ```bash
 sudo apt install xclip
