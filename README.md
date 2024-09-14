@@ -39,9 +39,9 @@ sudo apt install python3-venv
 ```
 
 
-This command will:
+This commands will:
 - Update your package lists.
-- Install all the required dependencies (`gnome-screenshot`, `tesseract-ocr`, `libtesseract-dev`, `xclip`, `dbus-x11`, and `python3-venv`).
+- Install all the required dependencies (`gnome-screenshot`, `tesseract-ocr`, `libtesseract-dev`, `xclip`, and `python3-venv`).
 
 
 ## Installation
