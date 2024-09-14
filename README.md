@@ -8,6 +8,9 @@ A Python-based tool that allows you to capture a selected area of the screen, ex
 - Extract text from the captured screenshot using Tesseract OCR.
 - Automatically copy the extracted text to the clipboard.
 
+**Support:** If you find this tool useful, please consider giving it a ⭐ on GitHub! Your support helps improve the project and ensures continued development.
+
+
 ## Requirements
 
 - **Ubuntu** or any Linux distribution with GNOME.
@@ -109,6 +112,9 @@ You will be prompted to select a portion of the screen. The extracted text will 
 2. **Via Keyboard Shortcut** (if manually created):
 
 Press `Shift + Ctrl + T` (or the custom shortcut you created) to activate the tool.
+
+**Note:** This is a basic implementation, and there may be occasional inaccuracies or errors in text extraction. Feel free to contribute and improve the tool!
+
 
 ## License
 
