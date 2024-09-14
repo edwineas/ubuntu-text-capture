@@ -6,15 +6,6 @@ VENV_DIR="$PROJECT_DIR/venv"
 REQUIREMENTS_FILE="$PROJECT_DIR/requirements.txt"
 SCRIPT_PATH="$PROJECT_DIR/text_capture.sh"
 
-# Function to install system dependencies
-install_system_dependencies() {
-    echo "Installing system dependencies..."
-
-    # Install gnome-screenshot, tesseract-ocr, and dbus-x11
-    sudo apt update
-    sudo apt install -y gnome-screenshot tesseract-ocr libtesseract-dev dbus-x11
-}
-
 # Create virtual environment
 echo "Creating virtual environment..."
 python3 -m venv $VENV_DIR
