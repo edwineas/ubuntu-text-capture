@@ -8,11 +8,11 @@ setup_venv() {
         echo "Creating Python virtual environment..."
         python3 -m venv venv
         echo "Activating virtual environment..."
-        source venv/bin/activate
+        . venv/bin/activate
     else
         echo "Virtual environment already exists."
         echo "Activating virtual environment..."
-        source $VENV_DIR/bin/activate
+        . $VENV_DIR/bin/activate
     fi
 }
 
