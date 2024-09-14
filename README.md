@@ -7,12 +7,13 @@ A Python-based tool that allows you to capture a selected area of the screen, ex
 - Capture a portion of the screen.
 - Extract text from the captured screenshot using Tesseract OCR.
 - Automatically copy the extracted text to the clipboard.
-- Create a custom keyboard shortcut (`Shift + Ctrl + T`) to trigger the tool quickly.
 
 ## Requirements
 
 - **Ubuntu** or any Linux distribution with GNOME.
 - Python 3.x.
+- `gnome-screenshot` for capturing the screenshot.
+- `Tesseract OCR` for extracting text.
 
 ## System Dependencies
 
@@ -32,9 +33,6 @@ sudo apt install libtesseract-dev
 ```
 ```bash
 sudo apt install xclip
-```
-```bash
-sudo apt install dbus-x11
 ```
 ```bash
 sudo apt install python3-venv
@@ -65,12 +63,12 @@ git@github.com:edwineas/ubuntu-text-capture.git
 cd ubuntu-text-capture
 ```
 
+
 ### 2. Run the Installation Script
 
 The installation script will:
-- Install system dependencies (`gnome-screenshot`, `tesseract-ocr`, `libtesseract-dev`, `dbus-x11`).
 - Create a virtual environment and install the required Python dependencies.
-- Set up a custom GNOME keyboard shortcut to trigger the tool.
+- Create the `text_capture.sh` script, which you can use to run the tool manually or as part of a custom keyboard shortcut.
 
 Run the following command:
 
@@ -78,16 +76,22 @@ Run the following command:
 sudo ./install.sh
 ```
 
-### 3. Verify the Setup
+### 3. Path to `text_capture.sh`
 
-After the installation, you can test if the `text-capture` command is working by running:
+After running the installation script, the `text_capture.sh` script will be located at:
 
-```bash
-./text_capture.sh
-```
+### 4. Manually Create a Keyboard Shortcut
 
+To manually create a keyboard shortcut that triggers the text capture:
 
-The tool will allow you to select a portion of the screen. After selecting, the extracted text will be copied to your clipboard.
+1. Open **Settings** > **Keyboard** > **View and Customize Shortcuts** > **Custom Shortcuts**.
+2. Click **+** to add a new shortcut.
+3. Set the **Name** to "Text Capture."
+4. In the **Command** field, enter the full path to the `text_capture.sh` script (e.g., `/home/username/ubuntu-text-capture/text_capture.sh`).
+5. Set the **Shortcut** to `Shift + Ctrl + T` (or your preferred key combination).
+6. Save the shortcut.
+
+Now, pressing the shortcut will trigger the text capture process.
 
 ## How to Use
 
@@ -100,21 +104,14 @@ Once the installation is complete, you can use the tool in two ways:
 ```bash
 ./text_capture.sh
 ```
-
-
 You will be prompted to select a portion of the screen. The extracted text will be copied to your clipboard.
 
-2. **Via Keyboard Shortcut**:
+2. **Via Keyboard Shortcut** (if manually created):
 
-Press `Shift + Ctrl + T` to activate the tool. This shortcut will trigger the text capture process.
-
-## Custom Keyboard Shortcut
-
-The installation script automatically creates a custom GNOME keyboard shortcut (`Shift + Ctrl + T`) for launching the tool. 
-
-If you wish to modify the shortcut, you can do so via the **Settings** > **Keyboard Shortcuts** section of your GNOME environment.
+Press `Shift + Ctrl + T` (or the custom shortcut you created) to activate the tool.
 
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
 

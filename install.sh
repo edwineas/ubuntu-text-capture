@@ -6,45 +6,61 @@ VENV_DIR="$PROJECT_DIR/venv"
 REQUIREMENTS_FILE="$PROJECT_DIR/requirements.txt"
 SCRIPT_PATH="$PROJECT_DIR/text_capture.sh"
 
-# Create virtual environment
-echo "Creating virtual environment..."
-python3 -m venv $VENV_DIR
+# Function to set up the Python virtual environment
+setup_venv() {
+    if [ ! -d "$VENV_DIR" ]; then
+        echo "Creating Python virtual environment..."
+        python3 -m venv $VENV_DIR
+    else
+        echo "Virtual environment already exists."
+    fi
+    echo "Activating virtual environment..."
+    source $VENV_DIR/bin/activate
+}
 
-# Activate virtual environment and install dependencies
-echo "Activating virtual environment and installing Python dependencies..."
-source $VENV_DIR/bin/activate
-pip install -r $REQUIREMENTS_FILE
+# Function to install Python dependencies
+install_python_dependencies() {
+    echo "Installing Python dependencies..."
+    pip install -r $REQUIREMENTS_FILE
+}
 
 # Deactivate virtual environment
-echo "Deactivating virtual environment..."
-deactivate
+deactivate_venv() {
+    echo "Deactivating virtual environment..."
+    deactivate
+}
 
-# Create the script for text capture
-echo "Creating text_capture.sh script..."
-cat <<EOL > text_capture.sh
+# Function to create the text_capture.sh script
+create_script() {
+    echo "Creating text_capture.sh script..."
+    cat <<EOL > $SCRIPT_PATH
 #!/bin/bash
 source $VENV_DIR/bin/activate && python3 $PROJECT_DIR/main.py
 EOL
 
-# Make it executable
-chmod +x text_capture.sh
+    # Make it executable
+    chmod +x $SCRIPT_PATH
+}
 
-# Set up GNOME shortcut
-echo "Setting up GNOME shortcut..."
+# Main execution starts here
+echo "Starting installation..."
 
-CURRENT_BINDINGS=$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings)
+# Set up Python virtual environment
+setup_venv
 
-if [[ "$CURRENT_BINDINGS" != *"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"* ]]; then
-    if [[ "$CURRENT_BINDINGS" == "@as []" ]]; then
-        gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-    else
-        gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "${CURRENT_BINDINGS%,*}, '/org/gnome/settings-daemon/plugins-media-keys/custom-keybindings/custom0/']"
-    fi
-fi
+# Install Python dependencies
+install_python_dependencies
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'text-capture'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "$SCRIPT_PATH"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Shift><Ctrl>T'
+# Deactivate virtual environment
+deactivate_venv
 
-echo "Shortcut for 'text-capture' added successfully!"
-echo "You can now use 'Shift + Ctrl + T' to trigger text capture."
+# Create text_capture.sh script
+create_script
+
+# Print the path to text_capture.sh for the user to copy
+echo ""
+echo "Installation completed successfully!"
+echo "You can now use the following path to set up the keyboard shortcut manually:"
+echo ""
+echo "$SCRIPT_PATH"
+echo ""
