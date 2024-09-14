@@ -16,11 +16,27 @@ A Python-based tool that allows you to capture a selected area of the screen, ex
 
 ## System Dependencies
 
-Before running the installation script, install all the required system dependencies with a single command:
+You will need to install several dependencies manually. Here are the commands to install each component individually.
 
 ```bash
-sudo apt update && sudo apt install -y gnome-screenshot tesseract-ocr libtesseract-dev xclip dbus-x11 python3-venv
+sudo apt update 
 ```
+```bash
+sudo apt install gnome-screenshot
+```
+```bash
+sudo apt install tesseract-ocr sudo apt install libtesseract-dev
+```
+```bash
+sudo apt install xclip
+```
+```bash
+sudo apt install dbus-x11
+```
+```bash
+sudo apt install python3-venv
+```
+
 
 This command will:
 - Update your package lists.
