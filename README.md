@@ -29,7 +29,7 @@ The installation script will automatically install the following system dependen
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/ubuntu-text-capture.git
+git clone https://github.com/edwineas/ubuntu-text-capture.git
 ```
 or
 
