@@ -10,7 +10,7 @@ def capture_screenshot():
 
     screenshot = Image.open(screenshot_path)
 
-    text = pytesseract.image_to_string(screenshot)
+    text = pytesseract.image_to_string(screenshot, lang='eng')
 
     pyperclip.copy(text.strip())
     print("Text copied to clipboard:", text.strip())
