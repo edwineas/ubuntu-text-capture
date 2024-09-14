@@ -16,11 +16,16 @@ A Python-based tool that allows you to capture a selected area of the screen, ex
 
 ## System Dependencies
 
-The installation script will automatically install the following system dependencies:
+Before running the installation script, install all the required system dependencies with a single command:
 
-1. `gnome-screenshot`
-2. `tesseract-ocr` and `libtesseract-dev`
-3. `dbus-x11`
+```bash
+sudo apt update && sudo apt install -y gnome-screenshot tesseract-ocr libtesseract-dev xclip dbus-x11 python3-venv
+```
+
+This command will:
+- Update your package lists.
+- Install all the required dependencies (`gnome-screenshot`, `tesseract-ocr`, `libtesseract-dev`, `xclip`, `dbus-x11`, and `python3-venv`).
+
 
 ## Installation
 
@@ -29,7 +34,7 @@ The installation script will automatically install the following system dependen
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/ubuntu-text-capture.git
+git clone https://github.com/edwineas/ubuntu-text-capture.git
 ```
 or
 
