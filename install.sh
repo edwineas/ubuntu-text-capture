@@ -7,11 +7,13 @@ setup_venv() {
     if [ ! -d "$VENV_DIR" ]; then
         echo "Creating Python virtual environment..."
         python3 -m venv venv
+        echo "Activating virtual environment..."
+        source venv/bin/activate
     else
         echo "Virtual environment already exists."
+        echo "Activating virtual environment..."
+        source $VENV_DIR/bin/activate
     fi
-    echo "Activating virtual environment..."
-    source $VENV_DIR/bin/activate
 }
 
 install_python_dependencies() {
