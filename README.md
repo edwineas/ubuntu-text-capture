@@ -2,6 +2,7 @@
 
 A Python-based tool that allows you to capture a selected area of the screen, extract text from it using Tesseract OCR, and copy the extracted text directly to the clipboard. This tool provides functionality similar to the text extraction feature in Windows PowerToys.
 
+Supports Scripts: Latin, Arabic, Han, Cyrillic, Devanagari
 ## Features
 
 - Capture a portion of the screen.
@@ -39,6 +40,24 @@ sudo apt install xclip
 ```
 ```bash
 sudo apt install python3-venv
+```
+
+For Specific Scripts Support
+Arabic
+```bash
+sudo apt install tesseract-ocr-arabic
+```
+Han
+```bash
+sudo apt install tesseract-ocr-chi-sim
+```
+Cyrillic
+```bash
+sudo apt install tesseract-ocr-cyrillic
+```
+Devanagari
+```bash
+sudo apt install tesseract-ocr-devanagari
 ```
 
 
